@@ -23,7 +23,7 @@ public class Portefeuille {
         FONCTION À IMPLEMENTER
 	**/
 
-    if ( destination.monnaie != this.monnaie && this.montant < montantJetons )
+    if ( destination.monnaie != this.monnaie || this.montant < montantJetons )
         return false;
 
     this.montant -= montantJetons;
@@ -45,7 +45,9 @@ public class Portefeuille {
     if ( montantEuros < 0 )
         return false;
 
-    montant += montantEuros * this.valeurEnEuros();
+    
+
+    montant += montantEuros / this.monnaie.getValeurDeJeton();
     return true;
   }
 
