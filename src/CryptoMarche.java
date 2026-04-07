@@ -52,7 +52,7 @@ public class CryptoMarche {
 	{
 		if (p.getMonnaie().equals(monnaie))
 		{
-			total += p.getMontant();
+			total += p.getMontant() * p.getMonnaie().getValeurDeJeton();
 		}
 	}
 		System.out.println(total);
