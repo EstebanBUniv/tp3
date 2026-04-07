@@ -19,11 +19,17 @@ public class Portefeuille {
    * @return Vrai si la transaction a été effectuée, faux sinon.  
    */
   public boolean transfertDevise (Portefeuille destination, double montantJetons){
-      /**
-           FONCTION À IMPLEMENTER
-	  **/
-      return false;
-  }
+    /**
+        FONCTION À IMPLEMENTER
+	**/
+
+    if ( destination.monnaie != this.monnaie && this.montant < montantJetons )
+        return false;
+
+    this.montant -= montantJetons;
+    destination.montant += montantJetons;
+    return true;
+    }
 
   /**
    * Cette fonction vous permet d'acheter des jetons de la 
@@ -36,7 +42,11 @@ public class Portefeuille {
 	/**
            FONCTION À IMPLEMENTER
 	**/
-    return false;
+    if ( montantEuros < 0 )
+        return false;
+
+    montant += montantEuros * this.valeurEnEuros();
+    return true;
   }
 
   /**
